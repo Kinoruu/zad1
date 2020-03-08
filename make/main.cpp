@@ -20,12 +20,12 @@ int gra(int x, int y, int z){               // funkcja odpowiada¹ca za rekurencj
   
   if ((z != x) && (z != y)){          //sprawdzanie czy doszliœmy do koñca przeszukiwania binarnego, jeœli prawda szukamy dalej
     if (iRetKey == IDYES){
-      x = z;
-      return gra(x, y, z = ((z+1) + y) / 2);
+      x = z + 1;
+      return gra(x, y, z = ((z) + y) / 2);
     }
     else{
       y = z;
-      return gra(x, y, z = (x + (z-1)) / 2);
+      return gra(x, y, z = (x + (z)) / 2);
     }
   }
   else{                       //osi¹gniêto koniec(wynik) wyszukiwania binarnego u¿ytkownik porównuje swoj¹ liczbê z otrzyman¹
