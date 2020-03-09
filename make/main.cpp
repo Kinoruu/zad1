@@ -18,31 +18,32 @@ int gra(int x, int y, int z){               // funkcja odpowiada¹ca za rekurencj
 
   int iRetKey = MessageBox(0, message.c_str(), "Aplikacja", MB_YESNO);
   
-  if ((z != x) && (z != y)){          //sprawdzanie czy doszliœmy do koñca przeszukiwania binarnego, jeœli prawda szukamy dalej
+  if ((z != x) || (z != y)){          //sprawdzanie czy doszliœmy do koñca przeszukiwania binarnego, jeœli prawda szukamy dalej
+   //while(x < y){
     if (iRetKey == IDYES){
       x = z + 1;
-      return gra(x, y, z = ((z) + y) / 2);
+      return gra(x, y, z = (x + y) / 2);
     }
     else{
       y = z;
-      return gra(x, y, z = (x + (z)) / 2);
+      return gra(x, y, z = (x + y) / 2);
     }
   }
-  else{                       //osi¹gniêto koniec(wynik) wyszukiwania binarnego u¿ytkownik porównuje swoj¹ liczbê z otrzyman¹
+  //else{                       //osi¹gniêto koniec(wynik) wyszukiwania binarnego u¿ytkownik porównuje swoj¹ liczbê z otrzyman¹
     tstring str4 = _T("Czy Twoja liczba to ");
     tstring str5 = _T(zz);
     tstring str6 = _T("?");
 
     tstring message2 = str4 + str5 + str6;
 
-    int iRetKey = MessageBox(0, message2.c_str(), "Aplikacja", MB_YESNO);
-    if (iRetKey == IDYES){
+    int iRetKey1 = MessageBox(0, message2.c_str(), "Aplikacja", MB_YESNO);
+    if (iRetKey1 == IDYES){
       MessageBox(0, "Hurra zgad³em", "Aplikacja", MB_ICONINFORMATION);
     }
     else{
       MessageBox(0, "Oj coœ posz³o nie tak", "Aplikacja", MB_OK | MB_ICONINFORMATION);
     }
-  }
+  //}
 }
 int WINAPI WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, PSTR szCmdLine, int iCmdShow){
   int x = 1;              //   inicjalizacja zmiennych
